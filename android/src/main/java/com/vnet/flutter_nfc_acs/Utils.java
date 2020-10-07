@@ -7,13 +7,9 @@
  * of the license agreement you entered into with ACS.
  */
 
-package com.nuvopoint.flutter_nfc_acs;
-
-import android.util.Log;
+package com.vnet.flutter_nfc_acs;
 
 import java.util.Locale;
-
-import static android.content.ContentValues.TAG;
 
 class Utils {
 

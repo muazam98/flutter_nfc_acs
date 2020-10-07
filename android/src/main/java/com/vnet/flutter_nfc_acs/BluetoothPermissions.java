@@ -1,4 +1,4 @@
-package com.nuvopoint.flutter_nfc_acs;
+package com.vnet.flutter_nfc_acs;
 
 import android.Manifest;
 import android.app.Activity;

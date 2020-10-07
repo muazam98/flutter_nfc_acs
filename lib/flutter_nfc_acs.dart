@@ -4,11 +4,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_nfc_acs/models.dart';
 
 class FlutterNfcAcs {
-  static const MethodChannel _channel = const MethodChannel('flutter.nuvopoint.com/nfc/acs');
-  static const EventChannel _devicesChannel = const EventChannel('flutter.nuvopoint.com/nfc/acs/devices');
-  static const EventChannel _deviceBatteryChannel = const EventChannel('flutter.nuvopoint.com/nfc/acs/device/battery');
-  static const EventChannel _deviceStatusChannel = const EventChannel("flutter.nuvopoint.com/nfc/acs/device/status");
-  static const EventChannel _deviceCardChannel = const EventChannel("flutter.nuvopoint.com/nfc/acs/device/card");
+  static const MethodChannel _channel =
+      const MethodChannel('flutter.vnet.com/nfc/acs');
+  static const EventChannel _devicesChannel =
+      const EventChannel('flutter.vnet.com/nfc/acs/devices');
+  static const EventChannel _deviceBatteryChannel =
+      const EventChannel('flutter.vnet.com/nfc/acs/device/battery');
+  static const EventChannel _deviceStatusChannel =
+      const EventChannel("flutter.vnet.com/nfc/acs/device/status");
+  static const EventChannel _deviceCardChannel =
+      const EventChannel("flutter.vnet.com/nfc/acs/device/card");
 
   // _channel's commands
   static const String CONNECT = 'CONNECT';
@@ -27,15 +32,20 @@ class FlutterNfcAcs {
   static Stream<int> _batteryStatus;
 
   static Stream<List<AcsDevice>> get devices {
-    _devices ??= _devicesChannel.receiveBroadcastStream().map<List<AcsDevice>>((data) {
-      return (data as Map<dynamic, dynamic>).entries.map<AcsDevice>((m) => AcsDevice(m.key, m.value)).toList();
+    _devices ??=
+        _devicesChannel.receiveBroadcastStream().map<List<AcsDevice>>((data) {
+      return (data as Map<dynamic, dynamic>)
+          .entries
+          .map<AcsDevice>((m) => AcsDevice(m.key, m.value))
+          .toList();
     });
 
     return _devices;
   }
 
   static Stream<String> get connectionStatus {
-    _connectionStatus ??= _deviceStatusChannel.receiveBroadcastStream().map<String>((data) {
+    _connectionStatus ??=
+        _deviceStatusChannel.receiveBroadcastStream().map<String>((data) {
       return data as String;
     });
 
@@ -51,7 +61,8 @@ class FlutterNfcAcs {
   }
 
   static Stream<int> get batteryStatus {
-    _batteryStatus ??= _deviceBatteryChannel.receiveBroadcastStream().map<int>((data) {
+    _batteryStatus ??=
+        _deviceBatteryChannel.receiveBroadcastStream().map<int>((data) {
       return data as int;
     });
 

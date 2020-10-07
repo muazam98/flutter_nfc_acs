@@ -1,4 +1,4 @@
-package com.nuvopoint.flutter_nfc_acs_example;
+package com.vnet.flutter_nfc_acs_example;
 
 import io.flutter.embedding.android.FlutterActivity;
 

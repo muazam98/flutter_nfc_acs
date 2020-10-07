@@ -1,17 +1,13 @@
-package com.nuvopoint.flutter_nfc_acs;
+package com.vnet.flutter_nfc_acs;
 
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-
 import com.acs.bluetooth.Acr1255uj1Reader;
 import com.acs.bluetooth.BluetoothReader;
 
 import java.util.Arrays;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import io.flutter.plugin.common.EventChannel;
 

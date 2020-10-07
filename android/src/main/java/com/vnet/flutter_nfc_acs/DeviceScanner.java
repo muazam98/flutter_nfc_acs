@@ -1,22 +1,20 @@
-package com.nuvopoint.flutter_nfc_acs;
+package com.vnet.flutter_nfc_acs;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import io.flutter.plugin.common.EventChannel.EventSink;
 import io.flutter.plugin.common.EventChannel.StreamHandler;
 
 import static android.content.ContentValues.TAG;
-import static com.nuvopoint.flutter_nfc_acs.FlutterNfcAcsPlugin.ERROR_NO_PERMISSIONS;
+import static com.vnet.flutter_nfc_acs.FlutterNfcAcsPlugin.ERROR_NO_PERMISSIONS;
 
 class DeviceScanner extends BluetoothPermissions implements StreamHandler {
   private HashMap<String, String> btDevices;
