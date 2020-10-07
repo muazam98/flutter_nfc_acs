@@ -9,9 +9,14 @@
 
 package com.nuvopoint.flutter_nfc_acs;
 
+import android.util.Log;
+
 import java.util.Locale;
 
+import static android.content.ContentValues.TAG;
+
 class Utils {
+
   static String toHexString(byte[] array) {
 
     StringBuilder bufferString = new StringBuilder();
@@ -85,6 +90,28 @@ class Utils {
           + Character.digit(s.charAt(i + 1), 16));
     }
     return data;
+  }
+
+  static String convertHexToString(String hex){
+
+    StringBuilder sb = new StringBuilder();
+    StringBuilder temp = new StringBuilder();
+
+    //49204c6f7665204a617661 split into two characters 49, 20, 4c...
+    for( int i=0; i<hex.length()-1; i+=2 ){
+
+      //grab the hex in pairs
+      String output = hex.substring(i, (i + 2));
+      //convert hex to decimal
+      int decimal = Integer.parseInt(output, 16);
+      //convert the decimal to character
+      sb.append((char)decimal);
+
+      temp.append(decimal);
+    }
+    //System.out.println("Decimal : " + temp.toString());
+
+    return sb.toString();
   }
 
 //  static byte[] hexString2Bytes(String string) {
